@@ -1,7 +1,10 @@
 object Worksheet {
-  trait List[+A]
+  trait List[+A] {
+    def tos: String
+  }
   case object Nil extends List[Nothing] {
     override def toString:String = "List()"
+    override def tos:String = "List()"
   }
 
   case class Cons[A](head: A, tail: List[A]) extends List[A] {
@@ -15,10 +18,12 @@ object Worksheet {
       case Cons(x, xs) => "List("+ x + foldLeft(xs, "")(_+","+_) + ")"
     }
 
+    override def tos:String =
+      "List(" + foldLeft3(tail, head.toString)(_ + ", " + _) + ")"
   }
   List(1, 2, 3, 4, 5, 6).toString()
-  List("a", "b", "c")
-  List(1)
+  List("a", "b", "c").tos
+  List(1).tos
   object List {
     def apply[A](as: A*): List[A] =
       if (as.isEmpty) Nil

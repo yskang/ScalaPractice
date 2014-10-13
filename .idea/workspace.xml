@@ -83,8 +83,8 @@
       <file leaf-file-name="Worksheet.sc" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Worksheet.sc">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.2643678" vertical-offset="1270" max-vertical-offset="3420">
-              <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3908046" vertical-offset="0" max-vertical-offset="3520">
+              <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -525,8 +525,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Worksheet.sc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.2643678" vertical-offset="1270" max-vertical-offset="3420">
-          <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.3908046" vertical-offset="0" max-vertical-offset="3520">
+          <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
           <folding />
         </state>
       </provider>

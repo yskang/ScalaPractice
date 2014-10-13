@@ -1,0 +1,4 @@
+ScalaPractice
+=============
+
+practice Scala

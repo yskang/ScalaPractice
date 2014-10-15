@@ -143,27 +143,63 @@ object Worksheet {
     case Cons(x, xs) if(f(x)) => Cons(x, filter(xs)(f))
     case Cons(x, xs) if(!f(x)) => filter(xs)(f)
   }
-  filter(y)(_%3 == 0)
+  filter(y)(_ != 3)
   def concat[A](as:List[A], bs:List[A]): List[A] = as match{
     case Cons(x, xs) => Cons(x, concat(xs, bs))
     case Nil => bs
   }
-
   def concat2[A](as:List[A], bs:List[A]): List[A] = as match{
     case Nil => bs
     case Cons(x, xs) => Cons(x, concat2(xs, bs))
   }
-
   concat2(ys, ys2)
-
   concat(ys, ys2)
-
   def flatMap[A, B](as: List[A])(f: A=>List[B]): List[B] = as match {
     case Nil => Nil
     case Cons(x, xs) => concat(f(x), flatMap(xs)(f))
   }
   val testList = List(1,2,3)
   flatMap(testList)(x => List(x,x,x))
+
+  flatMap(y)( _ match {
+    case 0 => List(1,2,3)
+    case 1 => List(4, 5,6)
+    case 2 => List(7,8,9)
+    case 3 => List(10, 11, 23)
+    case 4 => List(14, 15, 16)
+  })
+
+
+  def ff[A](a:A): List[A] = a != 3 match {
+    case true => List(a)
+    case false => Nil
+  }
+
+  flatMap(y)(ff(_))
+
+
+//  def filter2[A](as: List[A])(f:A => Boolean): List[A] =
+//    flatMap[A, A](as)( f(_) match {
+//      case false => Nil
+//      case true => List(_)
+//    })
+
+  def filter2[A](as: List[A])(f:A=>Boolean): List[A] =
+    flatMap(as)(x => if (f(x)) List(x) else Nil)
+
+  filter2(y)(_!=3)
+
+  def zipWith[A,B,C](as:List[A], bs:List[B])(f: (A,B) => C): List[C] = (as, bs) match {
+    case (Nil, Nil) => Nil
+    case (Nil, Cons(z, zs)) => Nil
+    case (Cons(x, xs), Nil) => Nil
+    case (Cons(x, xs), Cons(z, zs)) => concat(List(f(x, z)), zipWith(xs, zs)(f))
+  }
+
+  val testA = List(1, 2, 3, 4)
+  val testB = List(3, 3, 3)
+
+  zipWith(testA, testB)(_+_)
 
 
 }
